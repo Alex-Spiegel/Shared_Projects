@@ -14,6 +14,9 @@ router.get("/:id", ordersController.getOrderById);
 // PUT /orders/:id - Update an order by ID
 router.put("/:id", ordersController.updateOrderById);
 
+// PUT /orders/add/:orderId/:productId - Add a product to an order
+router.put("/add/:orderId/:productId", ordersController.addProductToOrder);
+
 // DELETE /orders/:id - Delete an order by ID
 router.delete("/:id", ordersController.deleteOrderById);
 

@@ -4,7 +4,12 @@ const productService = require("../services/productService");
 exports.createNewProduct = async (req, res) => {
   try {
     const result = await productService.createNewProduct(req.body);
-    res.status(201).json(result);
+    res
+      .status(201)
+      .json({
+        message: "The following product has been created!",
+        result: result,
+      });
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
