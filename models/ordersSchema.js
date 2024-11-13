@@ -32,5 +32,4 @@ const ordersModel = model(DOCUMENT_NAME, ordersSchema, COLLECTION_NAME); // Reih
 
 module.exports = ordersModel;
 
-// 5. swagger implenentieren
 // 6. authentifizierung nachrüsten (SA hands-on 2. session)

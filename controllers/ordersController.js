@@ -1,7 +1,6 @@
 const ordersService = require("../services/ordersService");
 
 // POST /orders - Create a new order
-
 exports.createNewOrder = async (req, res) => {
   try {
     const result = await ordersService.createNewOrder(req.body);
@@ -30,7 +29,7 @@ exports.getOrderById = async (req, res) => {
     const order = await ordersService.getOrderById(req.params.id);
 
     if (order) {
-      res.json({
+      res.status(200).json({
         message: "Here is your order!",
         order: order,
       });
@@ -46,6 +45,11 @@ exports.getOrderById = async (req, res) => {
 exports.updateOrderById = async (req, res) => {
   try {
     const result = await ordersService.updateOrderById(req.params.id, req.body);
+
+    if (!result) {
+      return res.status(404).json({ message: "Order not found!" });
+    }
+
     res.status(200).json({
       message: `Your order with the ID ${req.params.id} has been updated!`,
     });
@@ -82,6 +86,11 @@ exports.deleteOrderById = async (req, res) => {
   try {
     const id = req.params.id;
     const result = await ordersService.deleteOrderById(id);
+
+    if (!result) {
+      return res.status(404).json({ message: "Order not found!" });
+    }
+
     res
       .status(200)
       .json({ message: `Your order with the ID ${id} has been deleted!` });

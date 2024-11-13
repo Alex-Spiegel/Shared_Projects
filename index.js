@@ -3,6 +3,7 @@ const cors = require("cors");
 const productsRouter = require("./routes/productRoutes");
 const ordersRouter = require("./routes/ordersRoutes");
 const { run } = require("./config/db-client");
+const { specs, swaggerUi } = require("./config/swagger");
 
 const app = express();
 
@@ -16,6 +17,8 @@ app.use("/products", productsRouter);
 app.use("/orders", ordersRouter);
 
 run();
+
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(specs));
 
 app.listen(5050, () => {
   console.log("Server is running. Listening to port 5050");
