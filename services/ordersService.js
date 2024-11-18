@@ -1,6 +1,5 @@
 // const { client } = require("../config/db-client"); // This is MongoDB stuff
 // const { ObjectId } = require("mongodb"); // This is MongoDB stuff
-const { Router } = require("express");
 const ordersModel = require("../models/ordersSchema");
 const productModel = require("../models/productSchema.js");
 

@@ -2,6 +2,7 @@ const express = require("express");
 const cors = require("cors");
 const productsRouter = require("./routes/productRoutes");
 const ordersRouter = require("./routes/ordersRoutes");
+const usersRouter = require("./routes/usersRoutes");
 const { run } = require("./config/db-client");
 const { specs, swaggerUi } = require("./config/swagger");
 
@@ -15,6 +16,8 @@ app.use(cors());
 app.use("/products", productsRouter);
 // hier wird die Orders-Route initialisiert
 app.use("/orders", ordersRouter);
+// hier wird die Users-Route initialisiert
+app.use("/users", usersRouter);
 
 run();
 

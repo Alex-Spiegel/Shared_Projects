@@ -1,8 +1,9 @@
 // const { MongoClient } = require("mongodb"); MongoDB stuff
 const mongoose = require("mongoose");
+const dotenv = require("dotenv");
+dotenv.config(); // loads all existing env variables into the dokument
 
-const uri =
-  "mongodb+srv://guest:guest@ecommms.ipzg5.mongodb.net/ecommerce?retryWrites=true&w=majority"; // had to be changed a bit
+const uri = process.env.MONGO_URI; // the mongoDB string hat to be changed slightly - see .env
 
 // const client = new MongoClient(uri);
 
